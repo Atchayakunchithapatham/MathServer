@@ -41,7 +41,7 @@ Publish the website in the given URL.
 <style type="text/css">
 body 
 {
-background-color:red;
+background-color:purple;
 }
 .edge {
 width: 1440px;
@@ -52,14 +52,14 @@ padding-left: 300px;
 }
 .box {
 display:block;
-border: Thick dashed lime;
+border: Thick dashed black;
 width: 500px;
 min-height: 300px;
 font-size: 20px;
-background-color:blue;
+background-color:pink;
 }
 .formelt{
-color:orange;
+color:red;
 text-align: center;
 margin-top: 7px;
 margin-bottom: 6px;
@@ -95,6 +95,8 @@ Area : <input type="text" name="area" value="{{area}}"></input>m<sup>2</sup><br/
 </div>
 </body>
 </html>
+ 
+ views.py
 
 from django.shortcuts import render
 def squareprism(request):
@@ -109,12 +111,14 @@ def squareprism(request):
         print('request=',request)
         print('Base=',b)
         print('Height=',h)
-        area = int(b) * int(h)                              
+        area = 2*(int(b)^2)+4*int(b)*int(h)                                
         context['area'] = area
         context['b'] = b
         context['h'] = h
         print('Area=',area)
     return render(request,'mathapp/math.html',context)
+
+    urls.py
 
 from django.contrib import admin
 from django.urls import path
@@ -126,10 +130,10 @@ urlpatterns = [
 ]
 ```
 ## SERVER SIDE PROCESSING:
-![Alt text](<Screenshot (33).png>)
+![Alt text](<Screenshot (41).png>)
 
 ## HOMEPAGE:
-![Alt text](<Screenshot (34).png>)
+![Alt text](<Screenshot 2023-11-23 181803.png>)
 
 ## RESULT:
 The program for performing server side processing is completed successfully.
